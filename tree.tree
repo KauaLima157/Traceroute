@@ -1,0 +1,37 @@
+📦backend
+ ┣ 📂src
+ ┃ ┣ 📂config
+ ┃ ┃ ┗ 📜dbConfig.ts
+ ┃ ┣ 📂controllers
+ ┃ ┃ ┗ 📜TracerouteController.ts
+ ┃ ┣ 📂core
+ ┃ ┃ ┣ 📂entities
+ ┃ ┃ ┃ ┣ 📜Hop.ts
+ ┃ ┃ ┃ ┗ 📜Traceroute.ts
+ ┃ ┃ ┣ 📂interfaces
+ ┃ ┃ ┃ ┣ 📜ITracerouteRepository.ts
+ ┃ ┃ ┃ ┣ 📜ITracerouteService.ts
+ ┃ ┃ ┃ ┗ 📜IUseCase.ts
+ ┃ ┃ ┗ 📂usecases
+ ┃ ┃ ┃ ┗ 📜RunTracerouteUseCase.ts
+ ┃ ┣ 📂database
+ ┃ ┃ ┣ 📜connection.ts
+ ┃ ┃ ┣ 📜createDatabase.ts
+ ┃ ┃ ┗ 📜migrations.ts
+ ┃ ┣ 📂middlewares
+ ┃ ┃ ┣ 📜authMiddleware.ts
+ ┃ ┃ ┗ 📜validatorMiddleware.ts
+ ┃ ┣ 📂repositories
+ ┃ ┃ ┗ 📜TracerouteRepository.ts
+ ┃ ┣ 📂routes
+ ┃ ┃ ┗ 📜tracerouteRoutes.ts
+ ┃ ┣ 📂services
+ ┃ ┃ ┗ 📜TracerouteService.ts
+ ┃ ┣ 📂utils
+ ┃ ┗ 📂validators
+ ┣ 📜.env
+ ┣ 📜package-lock.json
+ ┣ 📜package.json
+ ┣ 📜server.ts
+ ┣ 📜tree.tree
+ ┗ 📜tsconfig.json
