@@ -10,9 +10,9 @@ O projeto utiliza as seguintes tecnologias:
 - **TypeScript**: Superset do JavaScript com tipagem estática.
 - **Express**: Framework web para Node.js.
 - **PostgreSQL**: Banco de dados relacional.
-- **Socket.io**: Comunicação em tempo real (instalado).
+- **Winston**: Biblioteca de logging versátil para Node.js, configurada para gerar logs em console (coloridos) e em arquivos (`logs/error.log` e `logs/combined.log`), com suporte a diferentes níveis de severidade (error, warn, info, http, debug).
+- **Zod**: Biblioteca de validação e declaração de schemas TypeScript. Utilizada para garantir a integridade dos dados recebidos nas requisições, validando formatos de IP/Hostname e parâmetros opcionais antes do processamento.
 - **Swagger**: Documentação da API.
-- **Docker** (Opcional, mas recomendado para o banco de dados).
 
 ## 📂 Estrutura do Projeto
 
@@ -26,8 +26,8 @@ A estrutura de pastas em `src/` segue uma arquitetura limpa e modular:
 - **repositories/**: Camada de acesso a dados (interação com o banco de dados).
 - **routes/**: Definição das rotas da API.
 - **services/**: Serviços externos ou internos (DNS, Geolocalização, Execução do Traceroute).
-- **utils/**: Funções utilitárias (Logger, formatadores).
-- **validators/**: Validações de dados (provavelmente schemas Zod).
+- **utils/**: Funções utilitárias. Destaque para o **Logger (Winston)** configurado aqui.
+- **validators/**: Schemas de validação com **Zod**, garantindo que inputs como `target`, `maxHops` e `timeout` estejam corretos.
 
 Arquivo principal:
 - **server.ts**: Ponto de entrada da aplicação, onde o servidor é configurado e iniciado.
@@ -95,7 +95,7 @@ Abaixo estão as rotas disponíveis na API (`/api/traceroute`):
 
 | Método | Rota | Descrição |
 |---|---|---|
-| `POST` | `/` | Inicia um novo traceroute. Requer JSON com `target` (IP/Host). |
+| `POST` | `/` | Inicia um novo traceroute. Requer JSON com `target` (IP/Host). Validação feita com Zod. |
 | `GET` | `/history` | Retorna o histórico de traceroutes do usuário (paginado). |
 | `GET` | `/stats` | Retorna estatísticas de uso do usuário. |
 | `GET` | `/:id` | Retorna os detalhes de um traceroute específico pelo ID. |
